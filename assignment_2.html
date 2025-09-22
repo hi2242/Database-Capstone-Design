@@ -1,0 +1,43 @@
+<!-- 12201919 윤종근 -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Parcel Sandbox</title>
+    <meta charset="UTF-8" />
+  </head>
+
+  <body>
+    <h1>Random Nummber Game</h1>
+    <div id="js-title">
+      <h3 class="js-title">
+        Generate a number between 0 and <span id="js-number-display">200</span>
+      </h3>
+      <div>
+        <input
+          id="slide"
+          type="range"
+          list="tickmarks"
+          min="0"
+          max="200"
+          value="200"
+        />
+        <datalist id="tickmarks">
+          <option value="50"></option>
+          <option value="100"></option>
+          <option value="150"></option>
+          <option value="200"></option>
+        </datalist>
+      </div>
+    </div>
+    <form id="js-guess">
+      <label for="num">Guess the number:</label>
+      <input id="num" type="number" max="200" min="0" />
+      <button id="play">Play!</button>
+    </form>
+    <div id="js-result">
+      <span></span>
+    </div>
+
+    <script type="text/javascript" src="assignment_2.js"></script>
+  </body>
+</html>
