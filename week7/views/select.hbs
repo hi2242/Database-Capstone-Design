@@ -25,13 +25,15 @@
     <td>Name</td>
     <td>Email</td>
     <td>Phone number</td>
+    <td>Building Id</td>
   </tr>
   {{#each Department}}
     <tr>
       <td>{{Id}}</td>
       <td>{{Name}}</td>
       <td>{{Email}}</td>
-      <td>{{PhoneNumber}}</td>
+      <td>{{Phone_number}}</td>
+      <td>{{Building_Id}}</td>
     </tr>
   {{/each}}
 </table>
@@ -52,7 +54,7 @@
       <td>{{id}}</td>
       <td>{{Name}}</td>
       <td>{{Capacity}}</td>
-      <td>{{building_Id}}</td>
+      <td>{{Building_Id}}</td>
       <td>{{Department_Id}}</td>
     </tr>
   {{/each}}
@@ -74,8 +76,32 @@
       <td>{{Id}}</td>
       <td>{{Name}}</td>
       <td>{{Email}}</td>
-      <td>{{PhoneNumber}}</td>
+      <td>{{Phone_number}}</td>
       <td>{{Major}}</td>
+    </tr>
+  {{/each}}
+</table>
+
+<!--Class-->
+<h2>{{title5}}</h2>
+
+<table>
+  <tr>
+    <td>Id</td>
+    <td>Name</td>
+    <td>Professor</td>
+    <td>Number_of_participants</td>
+    <td>Room_Id</td>
+    <td>Room_Building_Id</td>
+  </tr>
+  {{#each Class}}
+    <tr>
+      <td>{{Id}}</td>
+      <td>{{Name}}</td>
+      <td>{{Professor}}</td>
+      <td>{{Number_of_participants}}</td>
+      <td>{{Room_Id}}</td>
+      <td>{{Room_Building_Id}}</td>
     </tr>
   {{/each}}
 </table>

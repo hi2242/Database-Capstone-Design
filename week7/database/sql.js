@@ -12,10 +12,64 @@ const pool = mysql.createPool({
 
 const promisePool = pool.promise();
 
-export const ApplyQuery = {
-  applyquery: async (Query) => {
-    const sql = Query;
+// select query
+export const selectSql = {
+  getBuilding: async () => {
+    const sql = "SELECT * FROM building";
     const [result] = await promisePool.query(sql);
     return result;
+  },
+  getDepartment: async () => {
+    const sql = "SELECT * FROM department";
+    const [result] = await promisePool.query(sql);
+    return result;
+  },
+  getRoom: async () => {
+    const sql = "SELECT * FROM room";
+    const [result] = await promisePool.query(sql);
+    return result;
+  },
+  getStudent: async () => {
+    const sql = "SELECT * FROM student";
+    const [result] = await promisePool.query(sql);
+    return result;
+  },
+  getClass: async () => {
+    const sql = "SELECT * FROM class";
+    const [result] = await promisePool.query(sql);
+    return result;
+  },
+};
+
+export const insertSql = {
+  setStudent: async (data) => {
+    const sql = `INSERT INTO student VALUES (${data.Id}, "${data.Name}", "${data.Email}", "${data.PhoneNumber}", "${data.Major}")`;
+    console.log(data);
+    await promisePool.query(sql);
+  },
+};
+
+export const updateSql = {
+  updateStudent: async (data) => {
+    const sql = `
+      UPDATE student
+      SET Id = ${data.Id}, Name = "${data.Name}",
+      Email = "${data.Email}", Phone_number = "${data.Phone_number}",
+      Major = "${data.Major}"
+      WHERE Id = ${data.Id}`;
+
+    console.log(sql);
+    await promisePool.query(sql);
+  },
+  updateDepartment: async (data) => {
+    const sql = `
+      UPDATE department
+      SET Id = "${data.Id}", Name = "${data.Name}",
+      Email = "${data.Email}", Phone_number = "${data.Phone_number}",
+      Building_Id = "${data.Building_Id}"
+      WHERE Id = "${data.Id}"`;
+
+    console.log(sql);
+    await promisePool.query(sql);
   },
 };

@@ -3,6 +3,8 @@ import logger from "morgan";
 import path from "path";
 
 import homeRouter from "../routes/home";
+import updateRouter from '../routes/update';
+import selectRouter from '../routes/select';
 
 const PORT = 3000;
 
@@ -18,6 +20,8 @@ app.set("view engine", "hbs");
 app.use(logger("dev"));
 
 app.use("/", homeRouter);
+app.use('/update', updateRouter);
+app.use('/select', selectRouter);
 
 app.listen(PORT, () => {
   console.log(`Server is running at http://localhost:${PORT}`);

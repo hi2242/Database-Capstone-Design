@@ -5,9 +5,9 @@
     <td>Name</td>
     <td>Email</td>
     <td>Phone_number</td>
-    <td>Major</td>
+    <td>Building_Id</td>
   </tr>
-  {{#each student_res}}
+  {{#each department_res}}
     <form method="post">
       <tr>
         <td>{{Id}}</td>
@@ -18,16 +18,16 @@
           /></td>
         <td><input type="text" name="name" value="{{Name}}" /></td>
         <td><input type="text" name="email" value={{Email}} /></td>
+        <td><input type="text" name="PhoneNumber" value={{Phone_number}} /></td>
         <td><input
             type="text"
-            name="PhoneNumber"
-            value={{Phone_number}}
+            name="Building_Id"
+            value="{{Building_Id}}"
           /></td>
-        <td><input type="text" name="major" value="{{Major}}" /></td>
         <td><input
             type="submit"
             value="Modify"
-            formaction="/update/student"
+            formaction="/update/department"
           /></td>
       </tr>
     </form>
