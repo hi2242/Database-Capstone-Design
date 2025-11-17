@@ -143,6 +143,28 @@ CREATE TABLE IF NOT EXISTS `Inha`.`Employee` (
 ENGINE = InnoDB;
 
 
+-- -----------------------------------------------------
+-- Table `Inha`.`Enrollment`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `Inha`.`Enrollment` (
+  `Student_Id` INT NOT NULL,
+  `Class_Id` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`Student_Id`, `Class_Id`),
+  INDEX `fk_Student_has_Class_Class1_idx` (`Class_Id` ASC) VISIBLE,
+  INDEX `fk_Student_has_Class_Student1_idx` (`Student_Id` ASC) VISIBLE,
+  CONSTRAINT `fk_Student_has_Class_Student1`
+    FOREIGN KEY (`Student_Id`)
+    REFERENCES `Inha`.`Student` (`Id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Student_has_Class_Class1`
+    FOREIGN KEY (`Class_Id`)
+    REFERENCES `Inha`.`Class` (`Id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
@@ -197,3 +219,10 @@ INSERT INTO employee VALUES (2, "Kim", "Librarian", NULL);
 INSERT INTO employee VALUES (3, "Choi", "Officer", "ICE");
 INSERT INTO employee VALUES (4, "Lee", "Security Guard", NULL);
 INSERT INTO employee VALUES (5, "Seo", "Officer", "EEC");
+
+/* enrollment */
+INSERT INTO enrollment VALUES(12111111, "EEC4408");
+INSERT INTO enrollment VALUES(12111111, "EEC3204");
+INSERT INTO enrollment VALUES(12111111, "ICE4408");
+INSERT INTO enrollment VALUES(12111111, "MTH1204");
+INSERT INTO enrollment VALUES(12111111, "CSE4403");

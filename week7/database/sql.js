@@ -39,6 +39,18 @@ export const selectSql = {
     const [result] = await promisePool.query(sql);
     return result;
   },
+  getEnrollment: async () => {
+    const sql = "SELECT * FROM enrollment";
+    const [result] = await promisePool.query(sql);
+    return result;
+  },
+  getMyEnrollment: async (studentId) => {
+    const sql = `SELECT * FROM enrollment WHERE Student_Id=${studentId}`;
+    const [result] = await promisePool.query(sql);
+    console.log(studentId);
+    console.log(result);
+    return result;
+  },
 };
 
 export const insertSql = {
@@ -72,4 +84,13 @@ export const updateSql = {
     console.log(sql);
     await promisePool.query(sql);
   },
+};
+
+export const deleteSql = {
+    deleteEnrollment: async (data) => {
+        console.log(`delete Class_Id = ${data.Class_Id} Student_Id = ${data.Student_Id}`);
+        const sql = `delete from enrollment where Class_Id="${data.Class_Id}" AND Student_Id=${data.Student_Id}`;
+        console.log(sql);
+        await promisePool.query(sql);
+    },
 };

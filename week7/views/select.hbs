@@ -51,7 +51,7 @@
   </tr>
   {{#each Room}}
     <tr>
-      <td>{{id}}</td>
+      <td>{{Id}}</td>
       <td>{{Name}}</td>
       <td>{{Capacity}}</td>
       <td>{{Building_Id}}</td>
@@ -102,6 +102,22 @@
       <td>{{Number_of_participants}}</td>
       <td>{{Room_Id}}</td>
       <td>{{Room_Building_Id}}</td>
+    </tr>
+  {{/each}}
+</table>
+
+<!--Enrollment-->
+<h2>{{title6}}</h2>
+
+<table>
+  <tr>
+    <td>Student_Id</td>
+    <td>Class_Id</td>
+  </tr>
+  {{#each Enrollment}}
+    <tr>
+      <td>{{Student_Id}}</td>
+      <td>{{Class_Id}}</td>
     </tr>
   {{/each}}
 </table>

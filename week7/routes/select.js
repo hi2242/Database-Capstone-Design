@@ -9,7 +9,7 @@ router.get("/", async (req, res) => {
   const Room = await selectSql.getRoom();
   const Student = await selectSql.getStudent();
   const Class = await selectSql.getClass();
-
+  const Enrollment = await selectSql.getEnrollment();
   res.render("select", {
     main_title: "Tables in InhaDB",
     title1: "Building",
@@ -17,11 +17,13 @@ router.get("/", async (req, res) => {
     title3: "Room",
     title4: "Student",
     title5: "Class",
+    title6: "Enrollment",
     Building,
     Department,
     Room,
     Student,
     Class,
+    Enrollment,
   });
 });
 
